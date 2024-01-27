@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 @media print {
   .print_hide {
     display: none;
@@ -61,16 +61,18 @@ export default {
 }
 
 .home {
-  .option {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
-  .buttons {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-  }
+}
+
+.option {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 </style>

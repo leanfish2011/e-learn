@@ -16,21 +16,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-  .circle-number {
-    height: 20px;
-    width: 20px;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 50%;
-    border: 1px solid #000;
+<style scoped>
+.circle-number {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
 
-    .circle-number-num {
-      display: block;
-      height: 20px;
-      line-height: 20px;
-      text-align: center;
-      font-size: 14px;
-    }
-  }
+.circle-number-num {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
 </style>

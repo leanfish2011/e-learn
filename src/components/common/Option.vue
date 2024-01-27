@@ -40,39 +40,39 @@
 
         <el-form-item label="算数范围:">
           <el-input-number
-            v-model="optionModel.paramMin"
-            size="mini"
-            label="最小值"
+              v-model="optionModel.paramMin"
+              size="mini"
+              label="最小值"
           />
           <div class="scope-joint-mark"/>
           <el-input-number
-            v-model="optionModel.paramMax"
-            size="mini"
-            label="最大值"
+              v-model="optionModel.paramMax"
+              size="mini"
+              label="最大值"
           />
         </el-form-item>
 
         <el-form-item label="结果范围:">
           <el-input-number
-            v-model="optionModel.resultMin"
-            size="mini"
-            label="最小值"
+              v-model="optionModel.resultMin"
+              size="mini"
+              label="最小值"
           />
           <div class="scope-joint-mark"/>
           <el-input-number
-            v-model="optionModel.resultMax"
-            size="mini"
-            label="最大值"
+              v-model="optionModel.resultMax"
+              size="mini"
+              label="最大值"
           />
         </el-form-item>
 
         <el-form-item label="运算位数:">
           <el-input-number
-            v-model="optionModel.operNum"
-            :min="2"
-            :max="10"
-            size="mini"
-            label="运算位数"
+              v-model="optionModel.operNum"
+              :min="2"
+              :max="10"
+              size="mini"
+              label="运算位数"
           />
         </el-form-item>
 
@@ -80,17 +80,17 @@
           <span>
             <span class="option-sub-label">总页数：</span>
             <el-input-number
-              v-model="optionModel.pageCount"
-              :min="1"
-              size="mini"
-              label="总页数"
+                v-model="optionModel.pageCount"
+                :min="1"
+                size="mini"
+                label="总页数"
             />
             <span class="option-sub-label label-page-size">每页题目数：</span>
             <el-input-number
-              v-model="optionModel.pageSize"
-              :min="1"
-              size="mini"
-              label="每页条数"
+                v-model="optionModel.pageSize"
+                :min="1"
+                size="mini"
+                label="每页条数"
             />
           </span>
         </el-form-item>
@@ -128,7 +128,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .option {
   width: 100%;
   display: flex;
@@ -138,33 +138,33 @@ export default {
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
+}
 
-  .option-form {
-    width: 100%;
-    margin-left: 20px;
+.option-form {
+  width: 100%;
+  margin-left: 20px;
+}
 
-    .scope-joint-mark {
-      display: inline-block;
-      width: 20px;
-      height: 2px;
-      background-color: #606266;
-      padding: 4px 10px;
-      background-clip: content-box;
-    }
+.scope-joint-mark {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #606266;
+  padding: 4px 10px;
+  background-clip: content-box;
+}
 
-    .option-sub-label {
-      font-size: 12px;
-      color: #606266;;
-    }
+.option-sub-label {
+  font-size: 12px;
+  color: #606266;;
+}
 
-    .label-page-size {
-      padding-left: 10px;
-    }
-  }
+.label-page-size {
+  padding-left: 10px;
+}
 
-  .option-declare {
-    width: 100%;
-  }
+.option-declare {
+  width: 100%;
 }
 
 /deep/ .el-form-item {
