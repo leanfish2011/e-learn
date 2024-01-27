@@ -2,10 +2,6 @@
 
 > 轻松学，一键生成题库
 
-## 本地运行修改
-1. config/index.js下，assetsPublicPath: '/'改成assetsPublicPath: './',
-2. VueRouter的mode，由history改成hash
-
 ## Build Setup
 
 ``` bash
