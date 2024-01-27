@@ -7,7 +7,7 @@
             :key="pageIndex"
             class="sheet-page">
           <div class="page-title">
-            口算题卡（{{ num2hanzi(pageIndex + 1) }}）
+            口算题卡（{{ num2Chinese(pageIndex + 1) }}）
           </div>
           <div class="page-subtitle">
             姓名:________________&nbsp;&nbsp;&nbsp;&nbsp;
@@ -18,7 +18,6 @@
             <template v-for="(item,index) in examPageDatas">
               <div :key="index" class="page-content-item">
                 <span class="item-cell">
-                  <!-- <span class="item-index">{{ circleNumber(index + 1) }}</span> -->
                   <CircleNumber class="item-index" :num="index + 1"/>
                   <span>{{ item.display }}</span>
                 </span>
@@ -33,8 +32,8 @@
 </template>
 
 <script>
-import {oralGeneratorBatch} from '../../utils/examUtil';
-import {num2hanzi} from '../../utils/NumberUtil';
+import {questionGenBatch} from '../../utils/examUtil';
+import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from './CircleNumber.vue';
 import Answer from './Answer.vue';
 
@@ -71,7 +70,7 @@ export default {
     // 生成题目
     examGenerator(params) {
       this.pageSize = params.pageSize;
-      const examList = oralGeneratorBatch(params);
+      const examList = questionGenBatch(params);
       this.examList = examList.map(item => ({
         display: item.display.replace('_', '__'),
         answer: item.answer,
@@ -81,8 +80,8 @@ export default {
     handlePrint() {
       window.print();
     },
-    num2hanzi(num) {
-      return num2hanzi(num);
+    num2Chinese(num) {
+      return num2Chinese(num);
     },
   },
 };

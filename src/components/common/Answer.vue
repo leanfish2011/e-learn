@@ -8,13 +8,12 @@
         <div
             class="page-title"
             :class="pageIndex % 5 === 0 ? 'page-break' : ''">
-          口算答案（{{ num2hanzi(pageIndex + 1) }}）
+          口算答案（{{ num2Chinese(pageIndex + 1) }}）
         </div>
         <div class="page-content">
           <template v-for="(item,index) in examPageDatas">
             <div :key="index" class="page-content-item">
               <span class="item-cell">
-                <!-- <span class="item-index">{{ circleNumber(index + 1) }}</span> -->
                 <CircleNumber class="item-index" :num="index + 1"/>
                 <span>{{ item.answer }}</span>
               </span>
@@ -28,7 +27,7 @@
 
 <script>
 import CircleNumber from './CircleNumber.vue';
-import {num2hanzi} from '../../utils/NumberUtil';
+import {num2Chinese} from '../../utils/numUtil';
 
 export default {
   name: 'Answer',
@@ -42,8 +41,8 @@ export default {
     },
   },
   methods: {
-    num2hanzi(num) {
-      return num2hanzi(num);
+    num2Chinese(num) {
+      return num2Chinese(num);
     },
   },
 };

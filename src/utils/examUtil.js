@@ -4,7 +4,6 @@ import _ from 'lodash';
 const randomSpecial = (lower, upper, excludes = [0]) => {
   let r = _.random(lower, upper);
   if (_.includes(excludes, r)) {
-    // r = randomSpecial(lower, upper, excludes);
     r += 1;
   }
   return r;
@@ -47,21 +46,20 @@ export const oralTwoOral = ({
     }
   }
 
-
   return {
     p1, p2, oper, result, pOrder: paramOrder,
   };
 };
 
 // 获取算式显示方式。如：15+25-10=
-export const getEquationDisplay = ({ equations, finalResult }) => {
+export const getEquationDisplay = ({equations, finalResult}) => {
   const display = `${equations.join(' ')} =`;
   const answer = finalResult;
-  return { display, answer };
+  return {display, answer};
 };
 
 // 获取填空题显示方式。如：15+_-10=30
-export const getGapFillingDisplay = ({ equations, finalResult }) => {
+export const getGapFillingDisplay = ({equations, finalResult}) => {
   const equIdx = _.map(equations, (value, index) => {
     if (_.isNumber(value)) {
       return index;
@@ -77,7 +75,7 @@ export const getGapFillingDisplay = ({ equations, finalResult }) => {
 
   const display = gapEqus.join(' ');
 
-  return { display, answer };
+  return {display, answer};
 };
 
 // 获取题目显示方式
@@ -86,13 +84,13 @@ export const getDisplay = ({
 }) => {
   const type = _.sample(displayType);
   if (String(type) === '2') {
-    return getGapFillingDisplay({ operNum, equations, finalResult });
+    return getGapFillingDisplay({operNum, equations, finalResult});
   }
-  return getEquationDisplay({ equations, finalResult });
+  return getEquationDisplay({equations, finalResult});
 };
 
 // 生成多位数的口算题。如：15+25-10、50-35+15
-export const oralGenerator = ({
+export const questionGen = ({
   paramMin = 0, paramMax = 100,
   operNum = 3, operList = ['+', '-'],
   resultMin = 0, resultMax = 100,
@@ -148,7 +146,7 @@ export const oralGenerator = ({
   }
 
   // 保存显示方式
-  const { display, answer } = getDisplay({
+  const {display, answer} = getDisplay({
     operNum, displayType, equations, finalResult,
   });
 
@@ -163,7 +161,7 @@ export const oralGenerator = ({
  * @param {*} displayType 答题方式 1|标准题、2|填空题
  * @param {*} bracketType 是否包含括号 0|无括号、1|有括号、2|随机括号
  */
-export const oralGeneratorBatch = ({
+export const questionGenBatch = ({
   paramMin = 0, paramMax = 100,
   operNum = 3, operList = ['+', '-'],
   resultMin = 0, resultMax = 100,
@@ -172,7 +170,7 @@ export const oralGeneratorBatch = ({
 } = {}) => {
   const resultList = [];
   for (let i = 0; i < batchNum; i += 1) {
-    const resultObj = oralGenerator({
+    const resultObj = questionGen({
       paramMin,
       paramMax,
       operNum,
@@ -186,5 +184,3 @@ export const oralGeneratorBatch = ({
   }
   return resultList;
 };
-
-export default { oralTwoOral, oralGenerator, oralGeneratorBatch };
