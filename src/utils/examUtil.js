@@ -10,7 +10,7 @@ const randomSpecial = (lower, upper, excludes = [0]) => {
 };
 
 // 生成2位数的口算题。如：15+25、50-35
-export const oralTwoOral = ({
+export const twoExpGen = ({
   p1, pOrder = 1, // pOrder:参数的顺序。1:p1-p2、2:p2-p1
   operList = ['+', '-'],
   resultMin = 0, resultMax = 100,
@@ -128,7 +128,7 @@ export const questionGen = ({
     // 生成两个参数的表达式
     const {
       p2, oper, result, pOrder: paramOrder,
-    } = oralTwoOral({
+    } = twoExpGen({
       p1, operList, resultMin, resultMax, pOrder,
     });
 
@@ -182,5 +182,6 @@ export const questionGenBatch = ({
     });
     resultList.push(resultObj);
   }
+
   return resultList;
 };
