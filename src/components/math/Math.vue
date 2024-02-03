@@ -42,7 +42,7 @@ export default {
   methods: {
     handleExamGenerator() {
       const params = this.$refs.option.getOption();
-      params.batchNum = parseInt(params.pageCount * params.pageSize, 10);
+      params.examNum = parseInt(params.pageCount * params.pageSize, 10);
       console.log('参数：', params);
       this.$refs.examPreview.examGenerator(params);
     },
