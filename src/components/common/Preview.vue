@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {questionGenBatch} from '../../utils/examUtil-bak';
+import {questionGenBatch} from '../../utils/examUtil';
 import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from './CircleNumber.vue';
 import Answer from './Answer.vue';
