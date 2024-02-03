@@ -3,7 +3,7 @@
     <div class="header-container">
       <a class="home-link" href="/">
         <div class="logo"></div>
-        <span>轻松学</span>
+        <span>轻松学-题库</span>
       </a>
       <ul class="right-list">
         <label v-for="item in menuData">

@@ -2,7 +2,11 @@
   <div id="about">
     <top-header></top-header>
     <div class="aboutContent">
-      关于
+      这是一个可以生成题库的网站，适用于幼儿园、小学同学。<br>
+      <br>
+      可设置题型和难度，可打印题目<br>
+      <br>
+      使用中有任何问题或者建议，可给作者发邮件：leanfish2011@163.com
     </div>
     <bottom-footer></bottom-footer>
   </div>
