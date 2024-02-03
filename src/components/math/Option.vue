@@ -24,9 +24,9 @@
             <el-radio :label="1">
               标准题
             </el-radio>
-            <el-radio :label="2">
-              填空题
-            </el-radio>
+<!--            <el-radio :label="2">-->
+<!--              填空题-->
+<!--            </el-radio>-->
           </el-radio-group>
         </el-form-item>
 
@@ -121,7 +121,7 @@ export default {
         numCount: 3, // 运算位数
         examNum: 100, // 生成题目数量
         pageCount: 5, // 总页数
-        pageSize: 20, // 每页题目数量
+        pageSize: 60, // 每页题目数量
         displayType: 1, // 题目呈现方式。1：标准题型，2：填空题型
         bracketType: 1, // 有无括号。1：无、2：有
         isInt: true,// 结果为整数
