@@ -7,12 +7,12 @@
             :key="pageIndex"
             class="sheet-page">
           <div class="page-title">
-            口算题卡（{{ num2Chinese(pageIndex + 1) }}）
+            计算题（{{ num2Chinese(pageIndex + 1) }}）
           </div>
           <div class="page-subtitle">
-            姓名:________________&nbsp;&nbsp;&nbsp;&nbsp;
-            日期:________年____月____日&nbsp;&nbsp;星期:____&nbsp;&nbsp;&nbsp;&nbsp;
-            得分:________
+            姓名：________________&nbsp;&nbsp;&nbsp;&nbsp;
+            日期：________年____月____日&nbsp;&nbsp;星期:____&nbsp;&nbsp;&nbsp;&nbsp;
+            得分：________
           </div>
           <div class="page-content">
             <template v-for="(item,index) in examPageDatas">

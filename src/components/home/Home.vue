@@ -6,7 +6,7 @@
           <Option ref="option"/>
         </div>
         <div class="buttons">
-          <el-button @click="handleExamGenerator">
+          <el-button type="primary" plain @click="handleExamGenerator">
             生成
           </el-button>
           <el-button @click="handlePrint">
