@@ -4,8 +4,10 @@
 
 // 1、引入各个组件
 import Home from '../components/home/Home.vue'
+import About from "../components/home/About.vue"
 
 // 2、设置路由路径
 export default [
-  {path: "/", component: Home}
+  {path: "/", component: Home},
+  {path: "/about", component: About}
 ]

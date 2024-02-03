@@ -25,18 +25,8 @@ export default {
       menuData: [
         {
           id: "1",
-          name: "主页",
+          name: "数学",
           route: "/",
-        },
-        {
-          id: "2",
-          name: "标签",
-          route: "/tag",
-        },
-        {
-          id: "3",
-          name: "归档",
-          route: "/archive",
         },
         {
           id: "4",
