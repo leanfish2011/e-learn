@@ -3,12 +3,18 @@
     <div class="option-form">
       <el-form :model="optionModel">
         <el-form-item label="题型选择:">
-          <el-checkbox-group v-model="optionModel.operList">
+          <el-checkbox-group v-model="optionModel.opeList">
             <el-checkbox label="+" name="type">
               加法
             </el-checkbox>
             <el-checkbox label="-" name="type">
               减法
+            </el-checkbox>
+            <el-checkbox label="*" name="type">
+              乘法
+            </el-checkbox>
+            <el-checkbox label="/" name="type">
+              除法
             </el-checkbox>
           </el-checkbox-group>
         </el-form-item>
@@ -40,13 +46,13 @@
 
         <el-form-item label="算数范围:">
           <el-input-number
-              v-model="optionModel.paramMin"
+              v-model="optionModel.paraMin"
               size="mini"
               label="最小值"
           />
           <div class="scope-joint-mark"/>
           <el-input-number
-              v-model="optionModel.paramMax"
+              v-model="optionModel.paraMax"
               size="mini"
               label="最大值"
           />
@@ -68,7 +74,7 @@
 
         <el-form-item label="运算位数:">
           <el-input-number
-              v-model="optionModel.operNum"
+              v-model="optionModel.numCount"
               :min="2"
               :max="10"
               size="mini"
@@ -106,15 +112,15 @@ export default {
   data() {
     return {
       optionModel: {
-        operList: ['+', '-'], // 可选运算符
-        paramMin: 0, // 参与运算的数的最小值
-        paramMax: 100, // 参与运算的数的最大值
+        opeList: ['+', '-', '*', '/'], // 可选运算符
+        paraMin: 0, // 参与运算的数的最小值
+        paraMax: 100, // 参与运算的数的最大值
         resultMin: 0, // 计算结果的最小值
-        resultMax: 100, // 计算结果的最大值
-        operNum: 3, // 运算位数
-        batchNum: 300, // 生成题目数量
-        pageCount: 10, // 总页数
-        pageSize: 30, // 每页题目数量
+        resultMax: 50, // 计算结果的最大值
+        numCount: 3, // 运算位数
+        examNum: 100, // 生成题目数量
+        pageCount: 5, // 总页数
+        pageSize: 20, // 每页题目数量
         displayType: [1], // 题目呈现方式。1|标准题型，2|填空题型
         bracketType: 0, // 有无括号。0|无、1|有、2|随机
       },

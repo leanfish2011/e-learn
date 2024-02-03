@@ -43,7 +43,7 @@ export default {
     handleExamGenerator() {
       const params = this.$refs.option.getOption();
       params.batchNum = parseInt(params.pageCount * params.pageSize, 10);
-      console.log('题目参数：', params);
+      console.log('参数：', params);
       this.$refs.examPreview.examGenerator(params);
     },
     handlePrint() {

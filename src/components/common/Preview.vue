@@ -69,14 +69,9 @@ export default {
   methods: {
     // 生成题目
     examGenerator(params) {
-      // this.pageSize = params.pageSize;
-      // const examList = questionGenBatch(params);
-      // this.examList = examList.map(item => ({
-      //   display: item.display.replace('_', '__'),
-      //   answer: item.answer,
-      // }));
+      this.pageSize = params.pageSize;
 
-      const examList = startExamBatch();
+      const examList = startExamBatch(params);
       this.examList = examList.map(item => ({
         display: item.exp,
         answer: item.result,

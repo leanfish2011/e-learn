@@ -322,18 +322,17 @@ function examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
  * @param numCount 运算数个数
  * @param examNum 生成的试题个数
  */
-export function startExamBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
-    resultMin, resultMax, isInt, numCount, examNum) {
-  opeList = opeList || ["+", "-", "*", "/"];
-  isFill = isFill || false;
-  hasBrackets = hasBrackets || true;
-  paraMin = paraMin || 1;
-  paraMax = paraMax || 10;
-  resultMin = resultMin || 0;
-  resultMax = resultMax || 50;
-  isInt = isInt || true;
-  numCount = numCount || 3;
-  examNum = examNum || 10;
+export function startExamBatch(params) {
+  const opeList = params.opeList || ["+", "-", "*", "/"];
+  const isFill = params.isFill || false;
+  const hasBrackets = params.hasBrackets || true;
+  const paraMin = params.paraMin || 1;
+  const paraMax = params.paraMax || 100;
+  const resultMin = params.resultMin || 0;
+  const resultMax = params.resultMax || 50;
+  const isInt = params.isInt || true;
+  const numCount = params.numCount || 3;
+  const examNum = params.examNum || 100;
 
   return examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
       resultMin, resultMax, isInt, numCount, examNum);
