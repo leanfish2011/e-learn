@@ -41,9 +41,9 @@
           </el-radio-group>
         </el-form-item>
 
-        <el-form-item label="结果为整数">
-          <el-switch v-model="optionModel.isInt"></el-switch>
-        </el-form-item>
+<!--        <el-form-item label="结果为整数">-->
+<!--          <el-switch v-model="optionModel.isInt"></el-switch>-->
+<!--        </el-form-item>-->
 
         <el-form-item label="算数范围:">
           <el-input-number
