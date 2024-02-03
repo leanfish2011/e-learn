@@ -11,8 +11,9 @@
           </div>
           <div class="page-subtitle">
             姓名：________________&nbsp;&nbsp;&nbsp;&nbsp;
-            日期：________年____月____日&nbsp;&nbsp;星期:____&nbsp;&nbsp;&nbsp;&nbsp;
-            得分：________
+            日期：________________&nbsp;&nbsp;&nbsp;&nbsp;
+            得分：________&nbsp;&nbsp;&nbsp;&nbsp;
+            用时：________
           </div>
           <div class="page-content">
             <template v-for="(item,index) in examPageDatas">
@@ -89,7 +90,7 @@ export default {
 @media print {
   .sheet-page {
     width: 210mm;
-    height: 297mm;
+    height: 280mm;
     box-shadow: none;
   }
 }
@@ -99,7 +100,7 @@ export default {
 
 .sheet-page {
   width: 210mm;
-  height: 297mm;
+  height: 280mm;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -108,7 +109,7 @@ export default {
 
 .page-title {
   padding: 10px;
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   page-break-before: always;
 }
@@ -116,7 +117,7 @@ export default {
 .page-subtitle {
   padding: 10px 50px 30px 10px;
   font-size: 16px;
-  text-align: right;
+  text-align: center;
 }
 
 .page-content {
