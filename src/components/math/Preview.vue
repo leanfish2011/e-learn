@@ -104,7 +104,7 @@ export default {
 .sheet-page {
   width: 210mm;
   height: 297mm;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);*/
