@@ -4,11 +4,11 @@
  * @returns {boolean} true/false
  */
 function isNumber(a) {
-    if (!isNaN(a)) {
-        return true;
-    }
+  if (!isNaN(a)) {
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
 /**
@@ -16,10 +16,10 @@ function isNumber(a) {
  * @type {{"*": number, "+": number, "-": number, "/": number}}
  */
 const opeMap = {
-    "+": 1,
-    "-": 1,
-    "*": 2,
-    "/": 2
+  "+": 1,
+  "-": 1,
+  "*": 2,
+  "/": 2
 };
 
 /**
@@ -28,12 +28,12 @@ const opeMap = {
  * @returns {boolean}
  */
 function isOpe(a) {
-    let value = opeMap[a];
-    if (value != null) {
-        return true;
-    } else {
-        return false;
-    }
+  let value = opeMap[a];
+  if (value != null) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -42,31 +42,31 @@ function isOpe(a) {
  * @param opeStack 运算符栈
  */
 function calc(numStack, opeStack) {
-    if (opeStack.length == 0) {
-        return;
-    }
+  if (opeStack.length == 0) {
+    return;
+  }
 
-    let ope = opeStack.pop();
-    let right = numStack.pop();
-    let left = numStack.pop();
+  let ope = opeStack.pop();
+  let right = numStack.pop();
+  let left = numStack.pop();
 
-    let result;
-    switch (ope) {
-        case "+":
-            result = left + right;
-            break;
-        case "-":
-            result = left - right;
-            break;
-        case "*":
-            result = left * right;
-            break;
-        case "/":
-            result = left / right;
-            break;
-    }
+  let result;
+  switch (ope) {
+    case "+":
+      result = left + right;
+      break;
+    case "-":
+      result = left - right;
+      break;
+    case "*":
+      result = left * right;
+      break;
+    case "/":
+      result = left / right;
+      break;
+  }
 
-    numStack.push(result);
+  numStack.push(result);
 }
 
 /**
@@ -75,40 +75,40 @@ function calc(numStack, opeStack) {
  * @returns {*}
  */
 function calcExpression(expression) {
-    let numStack = [];//栈，存放数字
-    let opeStack = [];//栈，存放运算符
+  let numStack = [];//栈，存放数字
+  let opeStack = [];//栈，存放运算符
 
-    for (let i = 0; i < expression.length; i++) {
-        let item = expression[i];
+  for (let i = 0; i < expression.length; i++) {
+    let item = expression[i];
 
-        if (isNumber(item)) {
-            numStack.push(parseInt(item));
-        } else if (isOpe(item)) {
-            //运算符栈中运算级别高，则先运算
-            while (opeStack.length != 0 && opeMap[item]
-            <= opeMap[opeStack[opeStack.length
-            - 1]]) {
-                calc(numStack, opeStack);
-            }
-
-            opeStack.push(item);
-        } else if (item == "(") {
-            opeStack.push(item);
-        } else if (item == ")") {
-            //碰到右括号了，则说明括号封闭了，先计算括号里面
-            while (opeStack.length != 0 && opeStack[opeStack.length - 1] != "(") {
-                calc(numStack, opeStack);
-            }
-
-            opeStack.pop();
-        }
-    }
-
-    while (opeStack.length != 0) {
+    if (isNumber(item)) {
+      numStack.push(parseInt(item));
+    } else if (isOpe(item)) {
+      //运算符栈中运算级别高，则先运算
+      while (opeStack.length != 0 && opeMap[item]
+      <= opeMap[opeStack[opeStack.length
+      - 1]]) {
         calc(numStack, opeStack);
-    }
+      }
 
-    return numStack[numStack.length - 1];
+      opeStack.push(item);
+    } else if (item == "(") {
+      opeStack.push(item);
+    } else if (item == ")") {
+      //碰到右括号了，则说明括号封闭了，先计算括号里面
+      while (opeStack.length != 0 && opeStack[opeStack.length - 1] != "(") {
+        calc(numStack, opeStack);
+      }
+
+      opeStack.pop();
+    }
+  }
+
+  while (opeStack.length != 0) {
+    calc(numStack, opeStack);
+  }
+
+  return numStack[numStack.length - 1];
 }
 
 /**
@@ -118,10 +118,10 @@ function calcExpression(expression) {
  * @returns {*}
  */
 function genRandomInt(min, max) {
-    // 生成随机数
-    const result = Math.floor(Math.random() * (max - min + 1)) + min;
+  // 生成随机数
+  const result = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    return result;
+  return result;
 }
 
 /**
@@ -131,12 +131,12 @@ function genRandomInt(min, max) {
  * @returns {*}
  */
 function genRandomIntEven(min, max) {
-    let result = genRandomInt(min, max);
-    while (result % 2 !== 0) {
-        result = genRandomInt(min, max);
-    }
+  let result = genRandomInt(min, max);
+  while (result % 2 !== 0) {
+    result = genRandomInt(min, max);
+  }
 
-    return result;
+  return result;
 }
 
 /**
@@ -146,12 +146,12 @@ function genRandomIntEven(min, max) {
  * @returns {*}
  */
 function genRandomIntOdd(min, max) {
-    let result = genRandomInt(min, max);
-    while (result % 2 === 0) {
-        result = genRandomInt(min, max);
-    }
+  let result = genRandomInt(min, max);
+  while (result % 2 === 0) {
+    result = genRandomInt(min, max);
+  }
 
-    return result;
+  return result;
 }
 
 /**
@@ -160,8 +160,8 @@ function genRandomIntOdd(min, max) {
  * @returns {*}
  */
 function getRandItem(arr) {
-    const index = Math.floor(Math.random() * arr.length);
-    return arr[index];
+  const index = Math.floor(Math.random() * arr.length);
+  return arr[index];
 }
 
 /**
@@ -169,44 +169,43 @@ function getRandItem(arr) {
  * @param expression 表达式
  */
 function inBrackets(expression) {
-    // 左括号位置[0,倒数第2个]，偶数位置
-    const leftBrPos = genRandomIntEven(0, expression.length - 2);
-    let rightBrPos = leftBrPos + 2 * genRandomInt(1, expression.length) + 2;
-    rightBrPos = Math.min(expression.length + 1, rightBrPos);
+  // 左括号位置[0,倒数第2个]，偶数位置
+  const leftBrPos = genRandomIntEven(0, expression.length - 2);
+  let rightBrPos = leftBrPos + 2 * genRandomInt(1, expression.length) + 2;
+  rightBrPos = Math.min(expression.length + 1, rightBrPos);
 
-    //排除整个表达式加括号的情况
-    if (!(leftBrPos === 0 && rightBrPos === expression.length + 1)) {
-        expression.splice(leftBrPos, 0, "(");
-        expression.splice(rightBrPos, 0, ")");
-    }
+  //排除整个表达式加括号的情况
+  if (!(leftBrPos === 0 && rightBrPos === expression.length + 1)) {
+    expression.splice(leftBrPos, 0, "(");
+    expression.splice(rightBrPos, 0, ")");
+  }
 }
 
 /**
  * 获取表达式
- * @returns {[*]}
+ * @param opeList 支持的运算符
+ * @param numCount 运算数个数
+ * @param hasBrackets 是否有括号
+ * @param paraMin 运算最小数
+ * @param paraMax 运算最大数
+ * @returns {*[]}
  */
-function genExpression() {
-    const opeList = ["+", "-", "*", "/"];//支持的运算符
-    const numCount = 3;//运算数个数
-    const hasBrackets = true;//是否有括号
-    const min = 1;
-    const max = 10;
+function genExpression(opeList, numCount, hasBrackets, paraMin, paraMax) {
+  const left = genRandomInt(paraMin, paraMax);
+  let expression = [left];//先放入第一个数字，后面数字和运算符刚好成对放入
+  for (let i = 1; i < numCount; i++) {
+    const ope = getRandItem(opeList);
+    expression.push(ope);
 
-    const left = genRandomInt(min, max);
-    let expression = [left];//先放入第一个数字，后面数字和运算符刚好成对放入
-    for (let i = 1; i < numCount; i++) {
-        const ope = getRandItem(opeList);
-        expression.push(ope);
+    const right = genRandomInt(paraMin, paraMax);
+    expression.push(right);
+  }
 
-        const right = genRandomInt(min, max);
-        expression.push(right);
-    }
+  if (hasBrackets) {
+    inBrackets(expression);
+  }
 
-    if (hasBrackets) {
-        inBrackets(expression);
-    }
-
-    return expression;
+  return expression;
 }
 
 /**
@@ -214,22 +213,22 @@ function genExpression() {
  * @param expression
  */
 function transOpe(expression) {
-    for (let i = 0; i < expression.length; i++) {
-        let item = expression[i];
-        let replace;
-        switch (item) {
-            case "*":
-                replace = "&#215;";
-                break;
-            case "/":
-                replace = "&#247;";
-                break;
-            default:
-                replace = item;
-        }
-
-        expression[i] = replace;
+  for (let i = 0; i < expression.length; i++) {
+    let item = expression[i];
+    let replace;
+    switch (item) {
+      case "*":
+        replace = "&#215;";
+        break;
+      case "/":
+        replace = "&#247;";
+        break;
+      default:
+        replace = item;
     }
+
+    expression[i] = replace;
+  }
 }
 
 /**
@@ -238,57 +237,104 @@ function transOpe(expression) {
  * @returns {*}
  */
 function transExamType(expression) {
-    const toRepIndex = genRandomInt(0, expression.length - 1);
-    const toRep = expression[toRepIndex];
-    expression[toRepIndex] = "__";
+  const toRepIndex = genRandomInt(0, expression.length - 1);
+  const toRep = expression[toRepIndex];
+  expression[toRepIndex] = "__";
 
-    return toRep
+  return toRep
 }
 
 /**
  * 生成一个表达式及答案
- * @returns {{result: *, exp: string}}
+ * @param opeList 支持的运算符
+ * @param isFill 是否为填空题，计算题、填空题
+ * @param hasBrackets 是否有括号
+ * @param paraMin 运算最小数
+ * @param paraMax 运算最大数
+ * @param numCount 运算数个数
+ * @returns {{result: *, exp: string}|{result: *, toRep: *, exp: string}}
  */
-function examOne() {
-    let expression = genExpression();
-    let result = calcExpression(expression);
-    transOpe(expression);
+function examOne(opeList, isFill, hasBrackets, paraMin, paraMax, numCount) {
+  const expression = genExpression(opeList, numCount, hasBrackets, paraMin,
+      paraMax);
+  const result = calcExpression(expression);
+  transOpe(expression);
 
-    let isFill = false;
-    if (isFill) {
-        const toRep = transExamType(expression);
-        let exp = expression.join("");
-        return {"exp": exp, "result": result, "toRep": toRep};
-    }
+  if (isFill) {
+    const toRep = transExamType(expression);
+    const exp = expression.join("");
+    return {"exp": exp, "result": result, "toRep": toRep};
+  }
 
-    let exp = expression.join("");
-    return {"exp": exp, "result": result};
+  const exp = expression.join("");
+  return {"exp": exp, "result": result};
 }
 
-export function examBatch() {
-    const examNum = 10;//生成的试题个数
-    const resultMin = 0;//结果最小值
-    const resultMax = 50;//结果最大值
-    const isInt = true;//结果为整数
+/**
+ * 批量生成表达式及答案
+ * @param opeList 支持的运算符
+ * @param isFill 是否为填空题，计算题、填空题
+ * @param hasBrackets 是否有括号
+ * @param paraMin 运算最小数
+ * @param paraMax 运算最大数
+ * @param resultMin 结果最小值
+ * @param resultMax 结果最大值
+ * @param isInt 结果为整数
+ * @param numCount 运算数个数
+ * @param examNum 生成的试题个数
+ * @returns {*[]}
+ */
+function examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
+    resultMin, resultMax, isInt, numCount, examNum) {
+  const resultList = [];
+  let i = 0;
+  while (i < examNum) {
+    let exam = examOne(opeList, isFill, hasBrackets, paraMin, paraMax,
+        numCount);
+    let result = exam.result;
 
-    const resultList = [];
-    let i = 0;
-    while (i < examNum) {
-        let exam = examOne();
-        let result = exam.result;
-
-        if (result >= resultMin && result <= resultMax) {
-            if (isInt) {
-                if (result % 1 === 0) {
-                    resultList.push(exam);
-                    i++;
-                }
-            } else {
-                resultList.push(exam);
-                i++;
-            }
+    if (result >= resultMin && result <= resultMax) {
+      if (isInt) {
+        if (result % 1 === 0) {
+          resultList.push(exam);
+          i++;
         }
+      } else {
+        resultList.push(exam);
+        i++;
+      }
     }
+  }
 
-    return resultList;
+  return resultList;
+}
+
+/**
+ * 批量生成表达式及答案入口，进行参数校验
+ * @param opeList 支持的运算符
+ * @param isFill 是否为填空题，计算题、填空题
+ * @param hasBrackets 是否有括号
+ * @param paraMin 运算最小数
+ * @param paraMax 运算最大数
+ * @param resultMin 结果最小值
+ * @param resultMax 结果最大值
+ * @param isInt 结果为整数
+ * @param numCount 运算数个数
+ * @param examNum 生成的试题个数
+ */
+export function startExamBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
+    resultMin, resultMax, isInt, numCount, examNum) {
+  opeList = opeList || ["+", "-", "*", "/"];
+  isFill = isFill || false;
+  hasBrackets = hasBrackets || true;
+  paraMin = paraMin || 1;
+  paraMax = paraMax || 10;
+  resultMin = resultMin || 0;
+  resultMax = resultMax || 50;
+  isInt = isInt || true;
+  numCount = numCount || 3;
+  examNum = examNum || 10;
+
+  return examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
+      resultMin, resultMax, isInt, numCount, examNum);
 }

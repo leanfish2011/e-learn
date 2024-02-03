@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {examBatch} from "../../utils/math";
+import {startExamBatch} from "../../utils/math";
 import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from './CircleNumber.vue';
 import Answer from './Answer.vue';
@@ -76,7 +76,7 @@ export default {
       //   answer: item.answer,
       // }));
 
-      const examList = examBatch(params);
+      const examList = startExamBatch();
       this.examList = examList.map(item => ({
         display: item.exp,
         answer: item.result,
