@@ -77,10 +77,6 @@ export default {
         answer: item.result,
       }));
     },
-    // 打印
-    handlePrint() {
-      window.print();
-    },
     num2Chinese(num) {
       return num2Chinese(num);
     },
