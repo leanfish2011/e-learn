@@ -1,9 +1,6 @@
 <template>
-  <el-container>
-    <el-aside width="800px">
-      <Preview ref="examPreview"/>
-    </el-aside>
-    <el-main>
+  <div class="math">
+    <div class="exam">
       <div class="print_hide">
         <div class="option">
           <Option ref="option"/>
@@ -17,8 +14,9 @@
           </el-button>
         </div>
       </div>
-    </el-main>
-  </el-container>
+      <Preview ref="examPreview"/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -56,8 +54,9 @@ export default {
 </script>
 
 <style scoped>
-.home {
-
+.math {
+  width: 100%;
+  margin-top: 60px;
 }
 
 .option {
