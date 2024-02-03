@@ -1,10 +1,10 @@
 <template>
   <div id="home">
-    <top-header></top-header>
+    <top-header class="print_hide"></top-header>
     <main class="app-body">
       <main-math></main-math>
     </main>
-    <bottom-footer></bottom-footer>
+    <bottom-footer class="print_hide"></bottom-footer>
   </div>
 </template>
 

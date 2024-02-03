@@ -56,12 +56,6 @@ export default {
 </script>
 
 <style scoped>
-@media print {
-  .print_hide {
-    display: none;
-  }
-}
-
 .home {
 
 }

@@ -63,6 +63,12 @@ body {
   }
 }
 
+@media print {
+  .print_hide {
+    display: none;
+  }
+}
+
 ol,
 ul,
 form,
