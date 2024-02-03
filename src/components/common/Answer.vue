@@ -8,7 +8,7 @@
         <div
             class="page-title"
             :class="pageIndex % 5 === 0 ? 'page-break' : ''">
-          口算答案（{{ num2Chinese(pageIndex + 1) }}）
+          答案（{{ num2Chinese(pageIndex + 1) }}）
         </div>
         <div class="page-content">
           <template v-for="(item,index) in examPageDatas">
