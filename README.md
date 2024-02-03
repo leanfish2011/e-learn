@@ -2,20 +2,15 @@
 
 > 轻松学，一键生成题库
 
-## Build Setup
+## 说明
+这是一个可以生成题库的网站，适用于幼儿园、小学同学。
 
-``` bash
-# install dependencies
-npm install
+可设置题型和难度，可打印题目
 
-# serve with hot reload at localhost:8080
-npm run dev
+可以在线和离线使用
 
-# build for production with minification
-npm run build
+* 在线访问：<a href="https://leanfish2011.github.io/e-learn" target ="_blank">轻松学-题库</a>
+* 离线下载链接: https://pan.baidu.com/s/1mq_SrofNQIh-GDL9na8OSA
+提取码: 7jgn
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+使用中有任何问题或者建议，可给作者发邮件：leanfish2011@163.com
