@@ -286,7 +286,7 @@ function examOne(opeList, isFill, hasBrackets, paraMin, paraMax, numCount) {
  */
 function examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
     resultMin, resultMax, isInt, numCount, examNum) {
-  const resultList = [];
+  const examList = [];
   let i = 0;
   while (i < examNum) {
     let exam = examOne(opeList, isFill, hasBrackets, paraMin, paraMax,
@@ -296,17 +296,17 @@ function examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
     if (result >= resultMin && result <= resultMax) {
       if (isInt) {
         if (result % 1 === 0) {
-          resultList.push(exam);
+          examList.push(exam);
           i++;
         }
       } else {
-        resultList.push(exam);
+        examList.push(exam);
         i++;
       }
     }
   }
 
-  return resultList;
+  return examList;
 }
 
 /**
