@@ -262,11 +262,11 @@ function examOne(opeList, isFill, hasBrackets, paraMin, paraMax, numCount) {
 
   if (isFill) {
     const toRep = transExamType(expression);
-    const exp = expression.join("");
+    const exp = expression.join("") + "=";
     return {"exp": exp, "result": result, "toRep": toRep};
   }
 
-  const exp = expression.join("");
+  const exp = expression.join("") + "=";
   return {"exp": exp, "result": result};
 }
 
@@ -324,13 +324,13 @@ function examBatch(opeList, isFill, hasBrackets, paraMin, paraMax,
  */
 export function startExamBatch(params) {
   const opeList = params.opeList || ["+", "-", "*", "/"];
-  const isFill = params.isFill || false;
-  const hasBrackets = params.hasBrackets || true;
+  const isFill = params.displayType === 2 ? true : false;
+  const hasBrackets = params.bracketType === 1 ? false : true;
   const paraMin = params.paraMin || 1;
-  const paraMax = params.paraMax || 100;
+  const paraMax = params.paraMax || 50;
   const resultMin = params.resultMin || 0;
   const resultMax = params.resultMax || 50;
-  const isInt = params.isInt || true;
+  const isInt = params.isInt;
   const numCount = params.numCount || 3;
   const examNum = params.examNum || 100;
 

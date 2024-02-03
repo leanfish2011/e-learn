@@ -2,7 +2,7 @@
   <div class="option">
     <div class="option-form">
       <el-form :model="optionModel">
-        <el-form-item label="题型选择:">
+        <el-form-item label="运算:">
           <el-checkbox-group v-model="optionModel.opeList">
             <el-checkbox label="+" name="type">
               加法
@@ -19,29 +19,30 @@
           </el-checkbox-group>
         </el-form-item>
 
-        <el-form-item label="答题方式:">
-          <el-checkbox-group v-model="optionModel.displayType">
-            <el-checkbox :label="1">
-              标准题
-            </el-checkbox>
-            <el-checkbox :label="2">
-              填空题
-            </el-checkbox>
-          </el-checkbox-group>
-        </el-form-item>
-
-        <el-form-item label="有无括号">
-          <el-radio-group v-model="optionModel.bracketType">
-            <el-radio :label="0">
-              无括号
-            </el-radio>
+        <el-form-item label="题型:">
+          <el-radio-group v-model="optionModel.displayType">
             <el-radio :label="1">
-              有括号
+              标准题
             </el-radio>
             <el-radio :label="2">
-              随机
+              填空题
             </el-radio>
           </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="括号:">
+          <el-radio-group v-model="optionModel.bracketType">
+            <el-radio :label="1">
+              无括号
+            </el-radio>
+            <el-radio :label="2">
+              有括号
+            </el-radio>
+          </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="结果为整数">
+          <el-switch v-model="optionModel.isInt"></el-switch>
         </el-form-item>
 
         <el-form-item label="算数范围:">
@@ -114,15 +115,16 @@ export default {
       optionModel: {
         opeList: ['+', '-', '*', '/'], // 可选运算符
         paraMin: 0, // 参与运算的数的最小值
-        paraMax: 100, // 参与运算的数的最大值
+        paraMax: 50, // 参与运算的数的最大值
         resultMin: 0, // 计算结果的最小值
         resultMax: 50, // 计算结果的最大值
         numCount: 3, // 运算位数
         examNum: 100, // 生成题目数量
         pageCount: 5, // 总页数
         pageSize: 20, // 每页题目数量
-        displayType: [1], // 题目呈现方式。1|标准题型，2|填空题型
-        bracketType: 0, // 有无括号。0|无、1|有、2|随机
+        displayType: 1, // 题目呈现方式。1：标准题型，2：填空题型
+        bracketType: 1, // 有无括号。1：无、2：有
+        isInt: true,// 结果为整数
       },
     };
   },
