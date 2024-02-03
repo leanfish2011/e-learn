@@ -19,7 +19,7 @@
               <div :key="index" class="page-content-item">
                 <span class="item-cell">
                   <CircleNumber class="item-index" :num="index + 1"/>
-                  <span>{{ item.display }}</span>
+                  <span v-html="item.display"></span>
                 </span>
               </div>
             </template>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import {questionGenBatch} from '../../utils/examUtil';
+import {examBatch} from "../../utils/math";
 import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from './CircleNumber.vue';
 import Answer from './Answer.vue';
@@ -69,11 +69,17 @@ export default {
   methods: {
     // 生成题目
     examGenerator(params) {
-      this.pageSize = params.pageSize;
-      const examList = questionGenBatch(params);
+      // this.pageSize = params.pageSize;
+      // const examList = questionGenBatch(params);
+      // this.examList = examList.map(item => ({
+      //   display: item.display.replace('_', '__'),
+      //   answer: item.answer,
+      // }));
+
+      const examList = examBatch(params);
       this.examList = examList.map(item => ({
-        display: item.display.replace('_', '__'),
-        answer: item.answer,
+        display: item.exp,
+        answer: item.result,
       }));
     },
     // 打印
