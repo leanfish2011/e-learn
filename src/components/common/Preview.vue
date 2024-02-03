@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="exam-preview">
+  <div class="exam-preview">
+    <div>
       <template v-if="examPageList && examPageList.length > 0">
         <div
             v-for="(examPageDatas,pageIndex) in examPageList"

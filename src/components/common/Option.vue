@@ -51,7 +51,7 @@
               size="mini"
               label="最小值"
           />
-          <div class="scope-joint-mark"/>
+          <span>-</span>
           <el-input-number
               v-model="optionModel.paraMax"
               size="mini"
@@ -65,7 +65,7 @@
               size="mini"
               label="最小值"
           />
-          <div class="scope-joint-mark"/>
+          <span>-</span>
           <el-input-number
               v-model="optionModel.resultMax"
               size="mini"
@@ -139,7 +139,7 @@ export default {
 <style scoped>
 .option {
   width: 100%;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   background-color: #f9f9f9;
   border: 1px solid #e6e6e6;
@@ -153,18 +153,9 @@ export default {
   margin-left: 20px;
 }
 
-.scope-joint-mark {
-  display: inline-block;
-  width: 20px;
-  height: 2px;
-  background-color: #606266;
-  padding: 4px 10px;
-  background-clip: content-box;
-}
-
 .option-sub-label {
   font-size: 12px;
-  color: #606266;;
+  color: #606266;
 }
 
 .label-page-size {
