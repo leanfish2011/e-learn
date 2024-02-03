@@ -4,7 +4,7 @@
       <el-form :model="optionModel">
         <el-form-item label="运算:">
           <el-checkbox-group v-model="optionModel.opeList">
-            <el-checkbox label="+" name="type">
+            <el-checkbox label="+" name="type" disabled>
               加法
             </el-checkbox>
             <el-checkbox label="-" name="type">
@@ -51,7 +51,7 @@
               size="mini"
               label="最小值"
           />
-          <span>-</span>
+          <span>—</span>
           <el-input-number
               v-model="optionModel.paraMax"
               size="mini"
@@ -65,7 +65,7 @@
               size="mini"
               label="最小值"
           />
-          <span>-</span>
+          <span>—</span>
           <el-input-number
               v-model="optionModel.resultMax"
               size="mini"
@@ -73,13 +73,13 @@
           />
         </el-form-item>
 
-        <el-form-item label="运算位数:">
+        <el-form-item label="算数个数:">
           <el-input-number
               v-model="optionModel.numCount"
               :min="2"
-              :max="10"
+              :max="5"
               size="mini"
-              label="运算位数"
+              label="算数个数"
           />
         </el-form-item>
 
