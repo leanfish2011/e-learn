@@ -11,10 +11,10 @@
 <script>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-import Math from "../math/Math.vue";
+import Math from "../math/Math.vue"
 
 export default {
-  name: "Home",
+  name: "MathHome",
   components: {
     "topHeader": Header,
     "bottomFooter": Footer,

@@ -29,6 +29,11 @@ export default {
           route: "/",
         },
         {
+          id: "2",
+          name: "英语",
+          route: "/english",
+        },
+        {
           id: "4",
           name: "关于",
           route: "/about",
