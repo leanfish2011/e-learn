@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {startExamBatch} from "../../utils/math";
+import {startExamBatch} from "./math";
 import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from '../common/CircleNumber.vue';
 import Answer from '../common/Answer.vue';

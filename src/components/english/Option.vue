@@ -1,86 +1,23 @@
 <template>
   <div class="option">
     <div class="option-form">
-      <el-form :model="optionModel">
-        <el-form-item label="词库:">
-          <el-checkbox-group v-model="optionModel.opeList">
-            <el-checkbox label="+" name="type" disabled>
-              加法
-            </el-checkbox>
-            <el-checkbox label="-" name="type">
-              减法
-            </el-checkbox>
-            <el-checkbox label="*" name="type">
-              乘法
-            </el-checkbox>
-            <el-checkbox label="/" name="type">
-              除法
-            </el-checkbox>
-          </el-checkbox-group>
+      <el-form :model="optionModel" size="mini">
+
+
+        <el-form-item label="年级：">
+          <el-select v-model="optionModel.grade" placeholder="请选择年级">
+            <label v-for="item in allGrades">
+              <el-option :label=item.label :value=item.value></el-option>
+            </label>
+          </el-select>
         </el-form-item>
 
-        <el-form-item label="题型:">
-          <el-radio-group v-model="optionModel.displayType">
-            <el-radio :label="1">
-              标准题
-            </el-radio>
-<!--            <el-radio :label="2">-->
-<!--              填空题-->
-<!--            </el-radio>-->
-          </el-radio-group>
-        </el-form-item>
-
-        <el-form-item label="括号:">
-          <el-radio-group v-model="optionModel.bracketType">
-            <el-radio :label="1">
-              无括号
-            </el-radio>
-            <el-radio :label="2">
-              有括号
-            </el-radio>
-          </el-radio-group>
-        </el-form-item>
-
-<!--        <el-form-item label="结果为整数">-->
-<!--          <el-switch v-model="optionModel.isInt"></el-switch>-->
-<!--        </el-form-item>-->
-
-        <el-form-item label="算数范围:">
-          <el-input-number
-              v-model="optionModel.paraMin"
-              size="mini"
-              label="最小值"
-          />
-          <span>—</span>
-          <el-input-number
-              v-model="optionModel.paraMax"
-              size="mini"
-              label="最大值"
-          />
-        </el-form-item>
-
-        <el-form-item label="结果范围:">
-          <el-input-number
-              v-model="optionModel.resultMin"
-              size="mini"
-              label="最小值"
-          />
-          <span>—</span>
-          <el-input-number
-              v-model="optionModel.resultMax"
-              size="mini"
-              label="最大值"
-          />
-        </el-form-item>
-
-        <el-form-item label="算数个数:">
-          <el-input-number
-              v-model="optionModel.numCount"
-              :min="2"
-              :max="5"
-              size="mini"
-              label="算数个数"
-          />
+        <el-form-item label="单元：">
+          <el-select v-model="optionModel.unit" placeholder="请选择单元">
+            <label v-for="item in allUnits">
+              <el-option :label=item.label :value=item.value></el-option>
+            </label>
+          </el-select>
         </el-form-item>
 
         <el-form-item label="题目数量:">
@@ -89,14 +26,12 @@
             <el-input-number
                 v-model="optionModel.pageCount"
                 :min="1"
-                size="mini"
                 label="总页数"
             />
             <span class="option-sub-label label-page-size">每页题目数：</span>
             <el-input-number
                 v-model="optionModel.pageSize"
                 :min="1"
-                size="mini"
                 label="每页条数"
             />
           </span>
@@ -113,19 +48,28 @@ export default {
   data() {
     return {
       optionModel: {
-        opeList: ['+', '-', '*', '/'], // 可选运算符
-        paraMin: 0, // 参与运算的数的最小值
-        paraMax: 50, // 参与运算的数的最大值
-        resultMin: 0, // 计算结果的最小值
-        resultMax: 50, // 计算结果的最大值
-        numCount: 3, // 运算位数
+        grade: "7-0",//年级，0:上，1:下
+        unit: "1",//单元
         examNum: 100, // 生成题目数量
         pageCount: 5, // 总页数
-        pageSize: 60, // 每页题目数量
-        displayType: 1, // 题目呈现方式。1：标准题型，2：填空题型
-        bracketType: 1, // 有无括号。1：无、2：有
-        isInt: true,// 结果为整数
+        pageSize: 20, // 每页题目数量
       },
+      allGrades: [
+        {"label": "七年级-上册", "value": "7-0"},
+        {"label": "七年级-下册", "value": "7-1"},
+      ],
+      allUnits: [
+        {"label": "Unit 1", "value": "1"},
+        {"label": "Unit 2", "value": "2"},
+        {"label": "Unit 3", "value": "3"},
+        {"label": "Unit 4", "value": "4"},
+        {"label": "Unit 5", "value": "5"},
+        {"label": "Unit 6", "value": "6"},
+        {"label": "Unit 7", "value": "7"},
+        {"label": "Unit 8", "value": "8"},
+        {"label": "Unit 9", "value": "9"},
+        {"label": "Unit 9", "value": "10"},
+      ],
     };
   },
   methods: {

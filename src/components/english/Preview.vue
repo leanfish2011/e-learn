@@ -7,7 +7,7 @@
             :key="pageIndex"
             class="sheet-page">
           <div class="page-title">
-            计算题（{{ num2Chinese(pageIndex + 1) }}）
+            单词题（{{ num2Chinese(pageIndex + 1) }}）
           </div>
           <div class="page-subtitle">
             姓名：________________&nbsp;&nbsp;&nbsp;&nbsp;
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {startExamBatch} from "../../utils/math";
+import {startExamBatch} from "./english";
 import {num2Chinese} from '../../utils/numUtil';
 import CircleNumber from '../common/CircleNumber.vue';
 import Answer from '../common/Answer.vue';
@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      examList: [],// 生成的口算题列表
+      examList: [],// 生成的题列表
       pageSize: 30, // 每页题目数量
     };
   },
