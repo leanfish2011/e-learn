@@ -3,7 +3,6 @@
     <div class="option-form">
       <el-form :model="optionModel" size="mini">
 
-
         <el-form-item label="年级：">
           <el-select v-model="optionModel.grade" placeholder="请选择年级">
             <label v-for="item in allGrades">
@@ -15,6 +14,14 @@
         <el-form-item label="单元：">
           <el-select v-model="optionModel.unit" placeholder="请选择单元">
             <label v-for="item in allUnits">
+              <el-option :label=item.label :value=item.value></el-option>
+            </label>
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="题型：">
+          <el-select v-model="optionModel.questionType" placeholder="请选择题型">
+            <label v-for="item in allQuestionTypes">
               <el-option :label=item.label :value=item.value></el-option>
             </label>
           </el-select>
@@ -49,7 +56,8 @@ export default {
     return {
       optionModel: {
         grade: "7-0",//年级，0:上，1:下
-        unit: "1",//单元
+        unit: 1,//单元
+        questionType: 1,//题型
         examNum: 100, // 生成题目数量
         pageCount: 5, // 总页数
         pageSize: 20, // 每页题目数量
@@ -59,17 +67,21 @@ export default {
         {"label": "七年级-下册", "value": "7-1"},
       ],
       allUnits: [
-        {"label": "Unit 1", "value": "1"},
-        {"label": "Unit 2", "value": "2"},
-        {"label": "Unit 3", "value": "3"},
-        {"label": "Unit 4", "value": "4"},
-        {"label": "Unit 5", "value": "5"},
-        {"label": "Unit 6", "value": "6"},
-        {"label": "Unit 7", "value": "7"},
-        {"label": "Unit 8", "value": "8"},
-        {"label": "Unit 9", "value": "9"},
-        {"label": "Unit 9", "value": "10"},
+        {"label": "Unit 1", "value": 1},
+        {"label": "Unit 2", "value": 2},
+        {"label": "Unit 3", "value": 3},
+        {"label": "Unit 4", "value": 4},
+        {"label": "Unit 5", "value": 5},
+        {"label": "Unit 6", "value": 6},
+        {"label": "Unit 7", "value": 7},
+        {"label": "Unit 8", "value": 8},
+        {"label": "Unit 9", "value": 9},
+        {"label": "Unit 10", "value": 10},
       ],
+      allQuestionTypes: [
+        {"label": "单词补全", "value": 1},
+        {"label": "意思匹配", "value": 2},
+      ]
     };
   },
   methods: {
