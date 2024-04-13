@@ -2,7 +2,7 @@
   <div>
     <div class="footer">
       <div class="rightInfo">
-        <p>Copyright © Tim 2016-{{ year }}</p>
+        <p>Copyright © Tim 2023-{{ year }}</p>
       </div>
     </div>
     <el-backtop></el-backtop>
