@@ -5,13 +5,25 @@
         <div class="logo"></div>
         <span>轻松学-题库</span>
       </a>
-      <ul class="right-list">
-        <label v-for="item in menuData">
-          <li class="list-item">
-            <router-link :to=item.route exact class="item-link">{{ item.name }}</router-link>
-          </li>
-        </label>
-      </ul>
+      <div class="right-list">
+        <el-menu :default-active="activeIndex" mode="horizontal" router>
+          <el-submenu index="1">
+            <template slot="title">数学</template>
+            <el-menu-item index="1-1" route="/">
+              计算题
+            </el-menu-item>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">英语</template>
+            <el-menu-item index="2-1" route="/english">
+              单词
+            </el-menu-item>
+          </el-submenu>
+          <el-menu-item index="3" route="/about">
+            关于
+          </el-menu-item>
+        </el-menu>
+      </div>
     </div>
   </header>
 </template>
@@ -22,23 +34,7 @@ export default {
   name: "Header",
   data() {
     return {
-      menuData: [
-        {
-          id: "1",
-          name: "数学",
-          route: "/",
-        },
-        {
-          id: "2",
-          name: "英语",
-          route: "/english",
-        },
-        {
-          id: "4",
-          name: "关于",
-          route: "/about",
-        }
-      ]
+      activeIndex: '1',
     };
   }
 }
@@ -66,21 +62,17 @@ export default {
   color: #ff6700;
 }
 
-.fixed-header .item-link {
-  color: #34495e;
-}
-
 .header-container {
   max-width: 1200px;
   height: 40px;
   margin: 0 auto;
-  padding: 10px 40px;
+  padding: 5px 40px;
   position: relative;
 }
 
 @media screen and (max-width: 480px) {
   .header-container {
-    padding: 6px 20px;
+    padding: 5px 20px;
     position: relative;
   }
 }
@@ -113,27 +105,5 @@ export default {
   .right-list {
     display: none;
   }
-}
-
-.list-item {
-  display: inline-block;
-  margin: 0 8px;
-}
-
-.item-link {
-  height: 40px;
-  line-height: 40px;
-  text-decoration: none;
-  color: #fff;
-  padding-bottom: 3px;
-}
-
-.item-link:hover {
-  border-bottom: 3px solid #ff6700;
-}
-
-/*路由激活样式，router自带属性*/
-.router-link-active {
-  border-bottom: 3px solid #ff6700;
 }
 </style>
