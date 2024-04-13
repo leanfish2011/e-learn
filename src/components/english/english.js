@@ -103,6 +103,11 @@ function getWordsCount(grade, unit) {
 
 function examBatch(grade, unit, questionType, examNum) {
   const wordsCount = getWordsCount(grade, unit);
+
+  if (wordsCount == undefined || wordsCount == 0) {
+    return;
+  }
+
   if (examNum > wordsCount) {
     examNum = wordsCount;
   }
