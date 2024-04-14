@@ -58,8 +58,9 @@ function genExpression(lineWords, questionType) {
     let character = wordArray[replaceIndex];
     if (character != "_" && character != " ") {
       wordArray[replaceIndex] = "_ ";
-      replaceCount--;
     }
+
+    replaceCount--;
   }
 
   const word = wordArray.join("");
