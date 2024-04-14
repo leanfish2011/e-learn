@@ -77,6 +77,8 @@ export default {
         {"label": "Unit 8", "value": 8},
         {"label": "Unit 9", "value": 9},
         {"label": "Unit 10", "value": 10},
+        {"label": "Unit 11", "value": 11},
+        {"label": "Unit 12", "value": 12},
       ],
       allQuestionTypes: [
         {"label": "单词补全", "value": 1},
