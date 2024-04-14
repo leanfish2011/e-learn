@@ -65,7 +65,7 @@ export default {
 
 .page-title {
   padding: 14px;
-  font-size: 30px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -88,7 +88,7 @@ export default {
 }
 
 .page-content-item {
-  font-size: 20px;
+  font-size: 12px;
   white-space: pre-wrap;
   margin-bottom: 30px;
 }
