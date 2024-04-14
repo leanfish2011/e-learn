@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .circle-number {
   height: 20px;
-  width: 20px;
+  width: 25px;
   display: inline-block;
   vertical-align: top;
   border-radius: 50%;

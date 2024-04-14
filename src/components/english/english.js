@@ -56,7 +56,7 @@ function genExpression(lineWords, questionType) {
   while (replaceCount > 0) {
     let replaceIndex = genRandomInt(0, wordArray.length - 1);
     let character = wordArray[replaceIndex];
-    if (character != "_") {
+    if (character != "_" && character != " ") {
       wordArray[replaceIndex] = "_ ";
       replaceCount--;
     }

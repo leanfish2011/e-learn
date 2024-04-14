@@ -109,7 +109,7 @@ export default {
 
 .page-title {
   padding: 10px;
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
   page-break-before: always;
 }
