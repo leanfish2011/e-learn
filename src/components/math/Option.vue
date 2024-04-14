@@ -120,8 +120,8 @@ export default {
         resultMax: 50, // 计算结果的最大值
         numCount: 3, // 运算位数
         examNum: 100, // 生成题目数量
-        pageCount: 5, // 总页数
-        pageSize: 60, // 每页题目数量
+        pageCount: 1, // 总页数
+        pageSize: 120, // 每页题目数量
         displayType: 1, // 题目呈现方式。1：标准题型，2：填空题型
         bracketType: 1, // 有无括号。1：无、2：有
         isInt: true,// 结果为整数

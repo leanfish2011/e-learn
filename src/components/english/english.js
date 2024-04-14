@@ -47,7 +47,7 @@ function genExpression(lineWords, questionType) {
   const wordInfo = lineWords.split("_");
   let expression = [];
   expression.push(wordInfo[1]);
-  expression.push("   ");
+  expression.push(" ");
 
   // TODO 考虑题型
 
