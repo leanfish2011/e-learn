@@ -12,10 +12,9 @@
         </el-form-item>
 
         <el-form-item label="单元：">
-          <el-select v-model="optionModel.unit" placeholder="请选择单元">
-            <label v-for="item in allUnits">
-              <el-option :label=item.label :value=item.value></el-option>
-            </label>
+          <el-select v-model="optionModel.units" multiple placeholder="请选择单元">
+            <el-option v-for="item in allUnits" :key="item.value" :label=item.label
+                       :value=item.value></el-option>
           </el-select>
         </el-form-item>
 
@@ -55,8 +54,8 @@ export default {
   data() {
     return {
       optionModel: {
-        grade: "7-0",//年级，0:上，1:下
-        unit: 1,//单元
+        grade: "7-1",//年级，0:上，1:下
+        units: [1],//单元
         questionType: 1,//题型
         examNum: 100, // 生成题目数量
         pageCount: 1, // 总页数
@@ -64,7 +63,7 @@ export default {
       },
       allGrades: [
         {"label": "七年级-上册", "value": "7-0"},
-        {"label": "七年级-下册", "value": "7-1"},
+        {"label": "七年级-下册", "value": "7-1"}
       ],
       allUnits: [
         {"label": "Unit 1", "value": 1},
@@ -78,11 +77,11 @@ export default {
         {"label": "Unit 9", "value": 9},
         {"label": "Unit 10", "value": 10},
         {"label": "Unit 11", "value": 11},
-        {"label": "Unit 12", "value": 12},
+        {"label": "Unit 12", "value": 12}
       ],
       allQuestionTypes: [
         {"label": "单词补全", "value": 1},
-        {"label": "意思匹配", "value": 2},
+        {"label": "意思匹配", "value": 2}
       ]
     };
   },

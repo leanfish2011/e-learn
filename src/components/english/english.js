@@ -89,8 +89,14 @@ function examOne(lineWords, questionType) {
  * @param unit
  * @param line
  */
-function getLineWords(grade, unit, line) {
-  return words[grade][unit][line];
+function getLineWords(grade, units, line) {
+  let unitWords = [];
+  units.forEach(
+      unit => {
+        unitWords.push(words[grade]["unit-" + unit]);
+      });
+
+  return unitWords[line];
 }
 
 /**
@@ -98,12 +104,18 @@ function getLineWords(grade, unit, line) {
  * @param grade 年级
  * @param unit 单元
  */
-function getWordsCount(grade, unit) {
-  return words[grade][unit].length;
+function getWordsCount(grade, units) {
+  let sum = 0;
+  units.forEach(
+      unit => {
+        sum += words[grade]["unit-" + unit].length;
+      });
+
+  return sum;
 }
 
-function examBatch(grade, unit, questionType, examNum) {
-  const wordsCount = getWordsCount(grade, unit);
+function examBatch(grade, units, questionType, examNum) {
+  const wordsCount = getWordsCount(grade, units);
 
   if (wordsCount == undefined || wordsCount == 0) {
     return;
@@ -115,10 +127,20 @@ function examBatch(grade, unit, questionType, examNum) {
   const lineNumArray = genRandomArray(0, wordsCount - 1, examNum);
   console.log(lineNumArray);
 
+  let unitWords = [];
+  units.forEach(
+      unit => {
+        let unitArray = words[grade]["unit-" + unit];
+        unitArray.forEach(
+            item => {
+              unitWords.push(item);
+            });
+      });
+
   const examList = [];
   lineNumArray.forEach(
       lineNum => {
-        let lineWords = getLineWords(grade, unit, lineNum);
+        let lineWords = unitWords[lineNum];
         let exam = examOne(lineWords, questionType);
 
         examList.push(exam);
@@ -136,9 +158,9 @@ function examBatch(grade, unit, questionType, examNum) {
  */
 export function startExamBatch(params) {
   const grade = params.grade || "7-0";
-  const unit = "unit-" + params.unit || "unit-1";//单元
+  const units = params.units || [1];//单元
   const questionType = params.questionType || 1;//题型
   const examNum = params.examNum || 100; // 生成题目数量
 
-  return examBatch(grade, unit, questionType, examNum);
+  return examBatch(grade, units, questionType, examNum);
 }
