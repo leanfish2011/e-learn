@@ -101,22 +101,22 @@ export default {
 .sheet-page {
   width: 210mm;
   height: 280mm;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
   /*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);*/
 }
 
 .page-title {
-  padding: 10px;
-  font-size: 22px;
+  padding: 5px;
+  font-size: 16px;
   text-align: center;
   page-break-before: always;
 }
 
 .page-subtitle {
   padding: 10px 50px 30px 10px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -128,9 +128,9 @@ export default {
 }
 
 .page-content-item {
-  font-size: 20px;
-  white-space: pre-wrap;
-  margin-right: 30px;
+  font-size: 12px;
+  //white-space: pre-wrap;
+  margin-right: 10px;
 }
 
 .item-cell {
