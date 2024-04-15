@@ -14,16 +14,8 @@ export default {
   name: "Footer",
   data() {
     return {
-      year: ''
+      year: new Date().getFullYear()
     }
-  },
-  methods: {
-    getYear() {
-      this.year = new Date().getFullYear()
-    }
-  },
-  created() {
-    this.getYear()
   }
 }
 </script>

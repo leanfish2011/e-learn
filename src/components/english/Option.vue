@@ -59,7 +59,7 @@ export default {
         questionType: 1,//题型
         examNum: 100, // 生成题目数量
         pageCount: 1, // 总页数
-        pageSize: 120, // 每页题目数量
+        pageSize: 45, // 每页题目数量
       },
       allGrades: [
         {"label": "七年级-上册", "value": "7-0"},

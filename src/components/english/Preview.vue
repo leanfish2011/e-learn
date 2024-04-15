@@ -7,11 +7,11 @@
             :key="pageIndex"
             class="sheet-page">
           <div class="page-title">
-            单词题（{{ num2Chinese(pageIndex + 1) }}）
+            {{ formattedDate }}（{{ num2Chinese(pageIndex + 1) }}）
           </div>
           <div class="page-subtitle">
-            姓名：________________&nbsp;&nbsp;&nbsp;&nbsp;
-            日期：________________&nbsp;&nbsp;&nbsp;&nbsp;
+            班级：__________&nbsp;&nbsp;&nbsp;&nbsp;
+            姓名：__________&nbsp;&nbsp;&nbsp;&nbsp;
             得分：________&nbsp;&nbsp;&nbsp;&nbsp;
             用时：________
           </div>
@@ -66,6 +66,9 @@ export default {
       }
       return [];
     },
+    formattedDate() {
+      return this.formatDate(new Date());
+    }
   },
   methods: {
     // 生成题目
@@ -81,7 +84,13 @@ export default {
     num2Chinese(num) {
       return num2Chinese(num);
     },
-  },
+    formatDate(date) {
+      const year = date.getFullYear();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
+      const day = date.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`; // 输出格式为YYYY-MM-DD
+    }
+  }
 };
 </script>
 
@@ -100,7 +109,7 @@ export default {
 
 .sheet-page {
   width: 210mm;
-  height: 280mm;
+  height: 297mm;
   margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -109,14 +118,14 @@ export default {
 
 .page-title {
   padding: 5px;
-  font-size: 16px;
+  font-size: 24px;
   text-align: center;
   page-break-before: always;
 }
 
 .page-subtitle {
   padding: 10px 50px 30px 10px;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -128,9 +137,9 @@ export default {
 }
 
 .page-content-item {
-  font-size: 12px;
+  font-size: 22px;
   //white-space: pre-wrap;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .item-cell {
