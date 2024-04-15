@@ -117,15 +117,15 @@ export default {
 }
 
 .page-title {
-  padding: 5px;
-  font-size: 24px;
+  padding: 1px;
+  font-size: 22px;
   text-align: center;
   page-break-before: always;
 }
 
 .page-subtitle {
-  padding: 10px 50px 30px 10px;
-  font-size: 20px;
+  padding: 5px 50px 15px 10px;
+  font-size: 18px;
   text-align: center;
 }
 
